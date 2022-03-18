@@ -45,6 +45,7 @@ module.exports = configure(function (ctx) {
 
       'roboto-font', // optional, you are not bound to it
       'material-icons', // optional, you are not bound to it
+      'material-icons-round',
     ],
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
@@ -80,7 +81,7 @@ module.exports = configure(function (ctx) {
       server: {
         type: 'http',
       },
-      port: 8080,
+      port: 8082,
       open: true, // opens browser window automatically
     },
 

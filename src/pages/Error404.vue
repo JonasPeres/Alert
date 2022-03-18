@@ -2,7 +2,7 @@
   <div class="fullscreen flex flex-center">
     <div class="col-12 row">
       <div class="col-12 row justify-center">
-        <q-img src="AlertIconFull.png" height="250px" width="600px" />
+        <q-img src="LogoAlertFull.png" height="250px" width="600px" />
       </div>
       <div class="col-12 row q-pt-xl justify-center">
         <div class="col-12 row text-h3 justify-center" >
@@ -14,7 +14,7 @@
           text-color="white"
           unelevated
           size="20px"
-          to="/home"
+          to="/dashboard"
           label="Voltar"
           no-caps
         />
