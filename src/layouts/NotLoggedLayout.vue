@@ -32,8 +32,7 @@
             : 'col-auto row items-center q-pa-md'
         "
       >
-        <q-img 
-          @click="redirectRoute('login')"
+        <q-img
           src="LogoEmge.png" 
           :width="
             $q.platform.is.mobile
@@ -51,8 +50,7 @@
           style="cursor: pointer;" 
         />
         <q-icon name="r_add" size="30px" color="primary"></q-icon>
-        <q-img 
-          @click="redirectRoute('login')"
+        <q-img
           src="LogoDomHelder.png" 
           :width="
             $q.platform.is.mobile
@@ -89,7 +87,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #ce0a0c;
+  background-color: black;
   border-radius: 15px;
 }
 </style>

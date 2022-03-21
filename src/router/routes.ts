@@ -3,9 +3,8 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: '',
-    component: () => import('src/layouts/NotLoggedLayout.vue'),
-    children: [{ path: '', component: () => import('src/pages/login/Index.vue') }],
+    component: () => import('src/layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('src/pages/home/Index.vue') }],
   },
 
   {
@@ -22,7 +21,7 @@ const routes: RouteRecordRaw[] = [
       name: 'Dashboard'
     },
     component: () => import('src/layouts/LoggedLayout.vue'),
-    children: [{ path: '', component: () => import('src/pages/home/Index.vue') }],
+    children: [{ path: '', component: () => import('src/pages/dashboard/Index.vue') }],
   },
 
   // Always leave this as last one,

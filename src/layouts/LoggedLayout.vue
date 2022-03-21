@@ -18,7 +18,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #ce0a0c;
+  background-color: black;
   border-radius: 15px;
 }
 </style>
