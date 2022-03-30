@@ -1,41 +1,75 @@
 <template>
-  <q-page class="col-12 row justify-center flex flex-center bg-accent q-pb-md">
-    <q-form class="col-xl-3 col-lg-3 col-md-6 col-sm-10 col-xs-10" @submit="login">
-      <q-item-label class="text-h4 text-primary q-pb-lg">Acesse sua conta</q-item-label>
-      <q-input 
-        v-model="loginUser" 
-        dark
-        class="col-xl-6 col-lg-8 col-md-6 col-sm-6 col-xs-12 row q-py-md text-subtitle1" 
-        label="E-mail" 
-        color="white"
-        lazy-rules
-        :rules="[
-          val => val && val.length > 0 || 'Esse campo não pode ficar em branco'
-        ]"
-      >
-      </q-input>
-      <q-input 
-        v-model="password" 
-        class="col-xl-6 col-lg-8 col-md-6 col-sm-6 col-xs-12 row q-py-md text-subtitle1" 
-        :type="isPwd ? 'password' : 'text'"
-        label="Senha"
-        color="white"
-        dark
-        :rules="[
-          val => val && val.length > 0 || 'Esse campo não pode ficar em branco'
-        ]"
-      >
-        <template v-slot:append>
-          <q-icon
-            :name="isPwd ? 'visibility' : 'visibility_off'"
-            class="cursor-pointer"
-            @click="isPwd = !isPwd"
-          />
-        </template>
-      </q-input>
-      <q-btn flat dense no-caps class="text-grey-4 q-mt-md" @click="popupForgotPass = true">Esqueci minha senha</q-btn>
-      <q-btn label="Entrar" color="primary" type="submit" class="full-width q-my-md" text-color="white" size="17px"  />
-    </q-form>
+  <div>
+    <div class="col-12 row">
+      <q-page class="col-grow row">
+        <q-carousel
+          v-model="slide"
+          animated
+          class="col-12"
+          height="100%"
+        >
+          <q-carousel-slide name="login" class="col-12 row justify-center" img-src="dhc-emge.jpg">
+            <div v-if="$q.screen.xl || $q.screen.lg || $q.screen.md" class="my-img">
+              <q-img
+                @click="redirectRoute('login')"
+                src="LogoAlertFull.png" 
+                width="400px"
+                height="300px"
+                style="cursor: pointer;" 
+              />
+            </div>
+            <div v-else-if="$q.screen.sm || $q.screen.xs" class="my-img-xs">
+              <q-img
+                @click="redirectRoute('login')"
+                src="LogoAlertFull.png" 
+                width="300px"
+                height="200px"
+                style="cursor: pointer;" 
+              />
+            </div>
+            <div class="col-12 row q-pt-xl justify-center">
+              <q-form class="col-xl-3 col-lg-3 col-md-6 col-sm-10 col-xs-10" @submit="login">
+                <q-item-label class="text-h4 text-black q-pb-lg">Acesse sua conta</q-item-label>
+                <q-input 
+                  v-model="loginUser" 
+                  class="col-xl-6 col-lg-8 col-md-6 col-sm-6 col-xs-12 row q-py-md text-subtitle1"
+                  color="black"
+                  dark 
+                  label="E-mail" 
+                  lazy-rules
+                  :rules="[
+                    val => val && val.length > 0 || 'Esse campo não pode ficar em branco'
+                  ]"
+                >
+                </q-input>
+                <q-input 
+                  v-model="password" 
+                  class="col-xl-6 col-lg-8 col-md-6 col-sm-6 col-xs-12 row q-py-md text-subtitle1"
+                  color="black"
+                  dark 
+                  label="Senha"
+                  :type="isPwd ? 'password' : 'text'"
+                  lazy-rules
+                  :rules="[
+                    val => val && val.length > 0 || 'Esse campo não pode ficar em branco'
+                  ]"
+                >
+                  <template v-slot:append>
+                    <q-icon
+                      :name="isPwd ? 'visibility' : 'visibility_off'"
+                      class="cursor-pointer"
+                      @click="isPwd = !isPwd"
+                    />
+                  </template>
+                </q-input>
+                <q-btn flat dense no-caps class="text-grey-4 q-mt-md" @click="popupForgotPass = true">Esqueci minha senha</q-btn>
+                <q-btn label="Entrar" color="black" type="submit" class="full-width q-my-md" text-color="primary" size="17px"  />
+              </q-form>
+            </div>
+          </q-carousel-slide>
+        </q-carousel>
+      </q-page>
+    </div>
     <q-dialog v-model="popupForgotPass">
       <q-card style="max-width: 1500px; width: 900px; border-radius: 15px">
         <div class="col-12 row q-py-md" style="border-radius: 15px">
@@ -77,7 +111,7 @@
         </div>
       </q-card>
     </q-dialog>
-  </q-page>
+  </div>
 </template>
 
 <script lang="ts">
@@ -90,6 +124,7 @@ export default class LoginIndex extends AbstractComponent {
   loginUser = ''
   password = ''
   loginUserReset = ''
+  slide = 'login'
 
   login () {
     void this.$router.push('/dashboard')
@@ -97,3 +132,19 @@ export default class LoginIndex extends AbstractComponent {
 
 }
 </script>
+
+<style>
+  .my-img {
+    width: 400px;
+    height: 1px;
+    position: relative;
+    top: -55px;
+  }
+
+  .my-img-xs {
+    width: 300px;
+    height: 1px;
+    position: relative;
+    top: -32px;
+  }
+</style>

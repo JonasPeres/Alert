@@ -90,16 +90,7 @@
 
 <style>
 body::-webkit-scrollbar {
-  width: 8px;
-}
-
-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: black;
-  border-radius: 15px;
+  width: 0px;
 }
 </style>
 
