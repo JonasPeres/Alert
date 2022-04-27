@@ -1,10 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header
-      elevated
-      class="col-12 row no-wrap justify-between items-center bg-white"
-      :style="$q.platform.is.desktop ? 'height: 90px;' : 'height: 90px;'"
-    >
+    <q-header class="col-12 row no-wrap justify-between items-center bg-white" :style="$q.platform.is.desktop ? 'height: 90px;' : 'height: 90px;'">
       <div :class="
           $q.platform.is.desktop
             ? 'col-auto row items-center q-pa-md q-ml-lg'
@@ -30,16 +26,14 @@
           style="cursor: pointer;" 
         />
       </div>
-      <div v-if="$q.platform.is.desktop && !$q.screen.sm && !$q.screen.xs" class="col row no-wrap q-gutter-lg justify-end items-center q-px-lg">
+      <div v-if="$q.screen.xl || $q.screen.lg || $q.screen.md" class="col row no-wrap q-gutter-lg justify-end items-center q-px-lg">
+        <q-btn to="/register" class="q-px-sm col-auto" flat no-caps text-color="secondary" size="18px" dense style="height: 40px; font-family: Cursive;" label="Primeiro Acesso" />
         <div>
           <q-separator inset style="height: 30px; width: 2px" color="secondary" />
         </div>
-        <q-btn to="/login" class="q-px-sm col-auto" flat no-caps icon="person" text-color="secondary" size="18px" dense style="height: 40px" label="Login" />
+        <q-btn to="/login" class="q-px-sm col-auto" flat no-caps icon="person" text-color="secondary" size="18px" dense style="height: 40px; font-family: Cursive;" label="Login" />
       </div>
-      <div
-        v-else
-        class="col-grow row justify-end q-gutter-xs items-center q-px-sm"
-      >
+      <div v-else class="col-grow row justify-end q-gutter-xs items-center q-px-sm">
         <q-btn
           @click="toggleLeftDrawer()"
           class="q-ml-sm"
@@ -59,13 +53,19 @@
         >
           <q-list>
             <q-item
-              v-if="$q.platform.is.mobile"
               clickable
               v-ripple
-              to="/login"
             >
               <q-item-section class="text-subtitle1 text-secondary">
-                Login
+                <q-btn to="/register" class="q-px-sm col-auto" flat no-caps text-color="secondary" size="18px" dense style="height: 40px" label="Primeiro Acesso" />
+              </q-item-section>
+            </q-item>
+            <q-item
+              clickable
+              v-ripple
+            >
+              <q-item-section class="text-subtitle1 text-secondary">
+                <q-btn to="/login" class="q-px-sm col-auto" flat no-caps icon="person" text-color="secondary" size="18px" dense style="height: 40px" label="Login" />
               </q-item-section>
             </q-item>
           </q-list>
@@ -90,7 +90,16 @@
 
 <style>
 body::-webkit-scrollbar {
-  width: 0px;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 15px;
 }
 </style>
 

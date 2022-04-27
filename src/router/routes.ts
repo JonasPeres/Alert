@@ -1,4 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
+import { LocalStorage } from 'quasar';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -22,6 +23,14 @@ const routes: RouteRecordRaw[] = [
     },
     component: () => import('src/layouts/LoggedLayout.vue'),
     children: [{ path: '', component: () => import('src/pages/dashboard/Index.vue') }],
+    beforeEnter: (to, from, next) => {
+      const login = LocalStorage.getItem('login')
+      if (!login) {
+        next({ path: '/login'})
+        return
+      }
+      next()
+    }
   },
 
   // Always leave this as last one,

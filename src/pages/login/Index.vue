@@ -116,6 +116,8 @@
 
 <script lang="ts">
 import AbstractComponent from 'src/components/abstract-component'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { LocalStorage } from 'quasar';
 
 export default class LoginIndex extends AbstractComponent {
 
@@ -127,6 +129,7 @@ export default class LoginIndex extends AbstractComponent {
   slide = 'login'
 
   login () {
+    localStorage.setItem('login', 'true')
     void this.$router.push('/dashboard')
   }
 
