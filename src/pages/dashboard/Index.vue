@@ -1,6 +1,6 @@
 <template>
-  <div class="col-12 row fullscreen flex flex-center">
-    <q-item-label class="text-h1 text-black">Aqui terá um DashBoard huehuehue</q-item-label>
+  <div class="col-12 row">
+    
   </div>
 </template>
 

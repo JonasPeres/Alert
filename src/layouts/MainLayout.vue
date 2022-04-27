@@ -82,7 +82,11 @@
       style="width: 100%"
     >
       <q-toolbar class="col-12 row q-px-lg q-pb-sm" style="width: 100%">
-        
+        <div class="col-12 row justify-center">
+          <q-item-label class="text-white">
+            Desenvolvido por JonasPeres
+          </q-item-label>
+        </div>
       </q-toolbar>
     </q-layout-footer>
   </q-layout>
@@ -90,16 +94,7 @@
 
 <style>
 body::-webkit-scrollbar {
-  width: 5px;
-}
-
-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: black;
-  border-radius: 15px;
+  width: 0px;
 }
 </style>
 

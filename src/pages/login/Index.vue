@@ -28,8 +28,10 @@
               />
             </div>
             <div class="col-12 row q-pt-xl justify-center">
-              <q-form class="col-xl-3 col-lg-3 col-md-6 col-sm-10 col-xs-10" @submit="login">
-                <q-item-label class="text-h4 text-black q-pb-lg">Acesse sua conta</q-item-label>
+              <q-form class="" style="width: 400px;" @submit="login">
+                <div class="col-12 row justify-center">
+                  <q-item-label class="text-h4 text-black q-pb-lg">Acesse sua conta</q-item-label>
+                </div>
                 <q-input 
                   v-model="loginUser" 
                   class="col-xl-6 col-lg-8 col-md-6 col-sm-6 col-xs-12 row q-py-md text-subtitle1"
@@ -65,6 +67,9 @@
                 <q-btn flat dense no-caps class="text-grey-4 q-mt-md" @click="popupForgotPass = true">Esqueci minha senha</q-btn>
                 <q-btn label="Entrar" color="black" type="submit" class="full-width q-my-md" text-color="primary" size="17px"  />
               </q-form>
+              <div class="col-12 row justify-center">
+                <q-btn to="/register" class="q-px-sm col-auto" flat no-caps text-color="white" size="20px" dense style="height: 40px" label="Primeiro Acesso" />
+              </div>
             </div>
           </q-carousel-slide>
         </q-carousel>
@@ -129,6 +134,7 @@ export default class LoginIndex extends AbstractComponent {
   slide = 'login'
 
   login () {
+    localStorage.setItem('usuario', this.loginUser)
     localStorage.setItem('login', 'true')
     void this.$router.push('/dashboard')
   }
