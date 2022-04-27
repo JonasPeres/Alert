@@ -8,24 +8,32 @@
           class="col-12"
           height="100%"
         >
-          <q-carousel-slide name="login" class="col-12 row justify-center" img-src="dhc-emge.jpg">
-            <div v-if="$q.screen.xl || $q.screen.lg || $q.screen.md" class="my-img">
-              <q-img
-                @click="redirectRoute('login')"
-                src="LogoAlertFull.png" 
-                width="400px"
-                height="300px"
-                style="cursor: pointer;" 
-              />
-            </div>
-            <div v-else-if="$q.screen.sm || $q.screen.xs" class="my-img-xs">
-              <q-img
-                @click="redirectRoute('login')"
-                src="LogoAlertFull.png" 
-                width="300px"
-                height="200px"
-                style="cursor: pointer;" 
-              />
+          <q-carousel-slide name="login" class="col-12 row" img-src="dhc-emge.jpg">
+            <div class="col-12 row justify-center">
+              <div v-if="$q.screen.xl || $q.screen.lg || $q.screen.md || $q.screen.sm" class="absolute-top-left q-pt-md q-pl-md">
+                <q-btn to="/" icon="arrow_back" class="q-px-sm col-auto" flat no-caps text-color="primary" size="35px" dense style="height: 40px" />
+              </div>
+              <div v-else class="absolute-top-left">
+                <q-btn to="/" icon="arrow_back" class="q-px-sm col-auto" flat no-caps text-color="primary" size="25px" dense style="height: 40px" />
+              </div>
+              <div v-if="$q.screen.xl || $q.screen.lg || $q.screen.md" class="my-img">
+                <q-img
+                  @click="redirectRoute('login')"
+                  src="LogoAlertFull.png" 
+                  width="400px"
+                  height="300px"
+                  style="cursor: pointer;" 
+                />
+              </div>
+              <div v-else-if="$q.screen.sm || $q.screen.xs" class="my-img-xs">
+                <q-img
+                  @click="redirectRoute('login')"
+                  src="LogoAlertFull.png" 
+                  width="300px"
+                  height="200px"
+                  style="cursor: pointer;" 
+                />
+              </div>
             </div>
             <div class="col-12 row q-pt-xl justify-center">
               <q-form class="" style="width: 400px;" @submit="login">
@@ -37,7 +45,7 @@
                   class="col-xl-6 col-lg-8 col-md-6 col-sm-6 col-xs-12 row q-py-md text-subtitle1"
                   color="black"
                   dark 
-                  label="E-mail" 
+                  label="Matrícula" 
                   lazy-rules
                   :rules="[
                     val => val && val.length > 0 || 'Esse campo não pode ficar em branco'
@@ -67,9 +75,6 @@
                 <q-btn flat dense no-caps class="text-grey-4 q-mt-md" @click="popupForgotPass = true">Esqueci minha senha</q-btn>
                 <q-btn label="Entrar" color="black" type="submit" class="full-width q-my-md" text-color="primary" size="17px"  />
               </q-form>
-              <div class="col-12 row justify-center">
-                <q-btn to="/register" class="q-px-sm col-auto" flat no-caps text-color="white" size="20px" dense style="height: 40px" label="Primeiro Acesso" />
-              </div>
             </div>
           </q-carousel-slide>
         </q-carousel>
@@ -94,7 +99,7 @@
               v-model="loginUserReset" 
               color="secondary"
               class="col-12 row q-py-sm text-subtitle1"
-              label="E-mail" 
+              label="Matrícula" 
               lazy-rules
               :rules="[
                 val => val && val.length > 0 || 'Esse campo não pode ficar em branco']"
@@ -142,18 +147,14 @@ export default class LoginIndex extends AbstractComponent {
 }
 </script>
 
-<style>
+<style lang="scss">
   .my-img {
     width: 400px;
     height: 1px;
-    position: relative;
-    top: -55px;
   }
 
   .my-img-xs {
     width: 300px;
     height: 1px;
-    position: relative;
-    top: -32px;
   }
 </style>
