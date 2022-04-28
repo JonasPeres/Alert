@@ -33,6 +33,24 @@ const routes: RouteRecordRaw[] = [
     }
   },
 
+  {
+    path: '/schedule',
+    name: 'schedule',
+    meta: {
+      name: 'Agenda'
+    },
+    component: () => import('src/layouts/LoggedLayout.vue'),
+    children: [{ path: '', component: () => import('src/pages/schedule/Index.vue') }],
+    beforeEnter: (to, from, next) => {
+      const login = LocalStorage.getItem('login')
+      if (!login) {
+        next({ path: '/login'})
+        return
+      }
+      next()
+    }
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {

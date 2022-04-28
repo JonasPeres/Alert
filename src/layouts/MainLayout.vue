@@ -11,9 +11,7 @@
           @click="redirectRoute('/')"
           src="LogoAlertFull.png" 
           :width="
-            $q.platform.is.mobile
-            ? '110px'
-            : $q.screen.xl
+            $q.screen.xl
             ? '180px'
             : $q.screen.lg
             ? '180px'

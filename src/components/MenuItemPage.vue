@@ -6,7 +6,7 @@
       clickable
       active
       v-ripple
-      active-class="text-secondary active-item"
+      active-class="text-black active-item"
       exact-active-class="background-color: white"
       :to="menu_item.to"
       @click="index === listMenuItems.length - 1 ? logout() : ''"
@@ -15,8 +15,7 @@
         v-if="menu_item.icon"
         avatar
       >
-        <q-icon v-if="index === listMenuItems.length - 1" name="power_settings_new" color="black" size="35px" />
-        <q-img v-else :src="menu_item.icon" />
+        <q-icon :name="menu_item.icon" color="black" size="35px" />
       </q-item-section>
 
       <q-item-section>
@@ -28,7 +27,7 @@
 
 <style>
  .active-item {
-   background-color: white
+   background-color: rgb(255, 183, 183)
  }
 </style>
 

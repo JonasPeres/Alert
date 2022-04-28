@@ -11,19 +11,19 @@ export default class MenuItemsService extends AbstractComponent {
     return [
       {
         title: 'Dashboard',
-        icon: '',
+        icon: 'r_grid_view',
         to: '/dashboard',
         ativo: true,
       },
       {
-        title: 'teste',
-        icon: '',
-        to: '/teste',
+        title: 'Agenda',
+        icon: 's_calendar_month',
+        to: '/schedule',
         ativo: false,
       },
       {
         title: 'Sair',
-        icon: 'off',
+        icon: 'r_logout',
         to: '/login',
         ativo: false,
       },
