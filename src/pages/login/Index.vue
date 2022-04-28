@@ -37,10 +37,15 @@
             </div>
             <div class="col-12 row q-pt-xl justify-center">
               <q-form class="" style="width: 400px;" @submit="login">
-                <div class="col-12 row justify-center">
+                <div class="col-12 row justify-start">
                   <q-item-label class="text-h4 text-black q-pb-lg">Acesse sua conta</q-item-label>
                 </div>
-                <q-input 
+                <div class="q-gutter-md">
+                  <q-radio v-model="person" dense keep-color :color="person === 'A' ? 'primary' : 'grey-4'" class="text-grey-4 text-h6" val="A" label="Aluno" />
+                  <q-radio v-model="person" dense keep-color :color="person === 'P' ? 'primary' : 'grey-4'" val="P" class="text-grey-4 text-h6"  label="Professor" />
+                </div>
+                <q-input
+                  v-if="person === 'A'"
                   v-model="loginUser" 
                   class="col-xl-6 col-lg-8 col-md-6 col-sm-6 col-xs-12 row q-py-md text-subtitle1"
                   color="black"
@@ -48,6 +53,20 @@
                   label="Matrícula" 
                   lazy-rules
                   maxlength="6"
+                  :rules="[
+                    val => val && val.length > 0 || 'Esse campo não pode ficar em branco',
+                    val => val && val.length == 6 || 'O número de matrícula deve conter 6 dígitos'
+                  ]"
+                >
+                </q-input>
+                <q-input 
+                  v-if="person === 'P'"
+                  v-model="loginUser" 
+                  class="col-xl-6 col-lg-8 col-md-6 col-sm-6 col-xs-12 row q-py-md text-subtitle1"
+                  color="black"
+                  dark 
+                  label="E-mail" 
+                  lazy-rules
                   :rules="[
                     val => val && val.length > 0 || 'Esse campo não pode ficar em branco',
                     val => val && val.length == 6 || 'O número de matrícula deve conter 6 dígitos'
@@ -97,12 +116,28 @@
             <div class="col-12 row q-pb-md">
               <q-item-label class="text-weight-bold col-grow row" :class="$q.screen.sm || $q.screen.xs ? 'text-h7' : 'text-h6'">Um e-mail será enviado com instruções para resetar sua senha</q-item-label>
             </div>
+            <div class="q-gutter-md">
+              <q-radio v-model="personReset" dense keep-color :color="personReset === 'A' ? 'primary' : 'black'" class="text-black text-h6" val="A" label="Aluno" />
+              <q-radio v-model="personReset" dense keep-color :color="personReset === 'P' ? 'primary' : 'black'" val="P" class="text-black text-h6"  label="Professor" />
+            </div>
             <q-input 
+              v-if="personReset === 'A'"
               v-model="loginUserReset" 
               color="secondary"
               class="col-12 row q-py-sm text-subtitle1"
               label="Matrícula"
               maxlength="6"
+              lazy-rules
+              :rules="[
+                val => val && val.length > 0 || 'Esse campo não pode ficar em branco']"
+            >
+            </q-input>
+            <q-input 
+              v-if="personReset === 'P'"
+              v-model="loginUserReset" 
+              color="secondary"
+              class="col-12 row q-py-sm text-subtitle1"
+              label="E-mail"
               lazy-rules
               :rules="[
                 val => val && val.length > 0 || 'Esse campo não pode ficar em branco']"
@@ -134,6 +169,8 @@ import { LocalStorage } from 'quasar';
 
 export default class LoginIndex extends AbstractComponent {
 
+  person = 'A'
+  personReset = 'A'
   popupForgotPass = false
   isPwd = true
   loginUser = ''
@@ -145,6 +182,7 @@ export default class LoginIndex extends AbstractComponent {
     super.showLoading()
     try {
       localStorage.setItem('usuario', this.loginUser)
+      localStorage.setItem('person', this.person)
       localStorage.setItem('login', 'true')
       void this.$router.push('/dashboard')
     } catch (error) {

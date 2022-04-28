@@ -67,7 +67,12 @@
               </q-list>
             </q-menu>
             <q-item-label class="q-pr-xs" :class="$q.screen.sm || $q.screen.xs ? 'text-h6' : 'text-h5'">
-              {{ usuario === 'e01437' ? 'Jonas' : usuario }}
+              {{ 
+                usuario === 'e01437' ? 'Jonas' :
+                usuario === 'E01437' ? 'Jonas' : 
+                usuario === 'e01384' ? 'Juliana' :
+                usuario === 'E01384' ? 'Juliana' : '' 
+              }}
             </q-item-label>
             <q-icon name="keyboard_arrow_down"></q-icon>
             <q-avatar color="grey" text-color="grey-2" class="q-ml-md">
