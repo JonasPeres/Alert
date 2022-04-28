@@ -37,8 +37,7 @@ import { Options } from 'vue-class-component'
 import MenuItemsService from 'src/components/menu-items-service'
 import AbstractComponent from './abstract-component'
 import { MenuItem } from 'src/interfaces/menu-item-interface'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { LocalStorage } from 'quasar'
+import { LocalStorage, SessionStorage } from 'quasar';
 
 
 @Options({
@@ -54,8 +53,8 @@ export default class MenuItemPage extends AbstractComponent {
   logout () :void {
     super.showLoading()
     try {
-      localStorage.clear()
-      sessionStorage.clear()
+      LocalStorage.clear()
+      SessionStorage.clear()
       void this.$router.push('/login')
     } catch (error) {
       super.showNotifyErrorCustom('Ocorreu um erro inesperado...')

@@ -47,8 +47,10 @@
                   dark 
                   label="Matrícula" 
                   lazy-rules
+                  maxlength="6"
                   :rules="[
-                    val => val && val.length > 0 || 'Esse campo não pode ficar em branco'
+                    val => val && val.length > 0 || 'Esse campo não pode ficar em branco',
+                    val => val && val.length == 6 || 'O número de matrícula deve conter 6 dígitos'
                   ]"
                 >
                 </q-input>
@@ -99,7 +101,8 @@
               v-model="loginUserReset" 
               color="secondary"
               class="col-12 row q-py-sm text-subtitle1"
-              label="Matrícula" 
+              label="Matrícula"
+              maxlength="6"
               lazy-rules
               :rules="[
                 val => val && val.length > 0 || 'Esse campo não pode ficar em branco']"
@@ -139,9 +142,16 @@ export default class LoginIndex extends AbstractComponent {
   slide = 'login'
 
   login () {
-    localStorage.setItem('usuario', this.loginUser)
-    localStorage.setItem('login', 'true')
-    void this.$router.push('/dashboard')
+    super.showLoading()
+    try {
+      localStorage.setItem('usuario', this.loginUser)
+      localStorage.setItem('login', 'true')
+      void this.$router.push('/dashboard')
+    } catch (error) {
+      super.showNotifyErrorCustom(error as string)
+    } finally {
+      super.hideLoading()
+    }
   }
 
 }

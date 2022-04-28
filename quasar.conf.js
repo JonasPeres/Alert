@@ -81,7 +81,7 @@ module.exports = configure(function (ctx) {
       server: {
         type: 'http',
       },
-      port: 8082,
+      port: 8080,
       open: true, // opens browser window automatically
     },
 
@@ -90,7 +90,7 @@ module.exports = configure(function (ctx) {
       config: {},
 
       // iconSet: 'material-icons', // Quasar icon set
-      // lang: 'en-US', // Quasar language pack
+      lang: 'pt-BR', // Quasar language pack
 
       // For special cases outside of where the auto-import strategy can have an impact
       // (like functional components as one of the examples),
@@ -100,12 +100,18 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: [
+        'Dialog',
+        'Loading',
+        'Notify',
+        'LocalStorage',
+        'SessionStorage'
+      ]
     },
 
     // animations: 'all', // --- includes all animations
     // https://quasar.dev/options/animations
-    animations: [],
+    animations: 'all',
 
     // https://quasar.dev/quasar-cli/developing-ssr/configuring-ssr
     ssr: {

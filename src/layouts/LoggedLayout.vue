@@ -42,7 +42,7 @@
               transition-hide="flip-left"
             >
               <q-item-label class="col-12 row q-py-sm q-pl-lg" :class="$q.platform.is.mobile ? 'text-h6' : 'text-h5'">
-                {{ usuario }}
+                {{ usuario === 'e01437' ? '' : usuario }}
               </q-item-label>
               <q-separator class="col-12" size="2px"></q-separator>
               <q-list class="bg-white" style="width: 280px;">
@@ -65,7 +65,7 @@
                 <q-separator class="col-12" size="2px"></q-separator>
                 <q-item class="col-grow row text-weight-medium">
                   <q-item-section>
-                    <q-item-label>Versão: {{versionApp}}</q-item-label>
+                    <q-item-label>Versão: {{ versionApp }}</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
@@ -109,7 +109,7 @@
               </q-list>
             </q-menu>
             <q-item-label class="q-pr-xs" :class="$q.platform.is.mobile ? 'text-h6' : 'text-h5'">
-              {{ usuario }}
+              {{ usuario === 'e01437' ? 'Jonas Peres' : usuario }}
             </q-item-label>
             <q-icon name="keyboard_arrow_down"></q-icon>
             <q-avatar color="secondary" text-color="grey-2" class="q-ml-md">
@@ -187,8 +187,7 @@ import AbstractComponent from 'src/components/abstract-component'
 import { Options } from 'vue-class-component';
 import MenuItemPage from 'components/MenuItemPage.vue'
 import { Watch } from 'vue-property-decorator';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { LocalStorage } from 'quasar';
+import { LocalStorage, SessionStorage } from 'quasar';
 import { version } from '../../package.json'
 
 @Options({
@@ -224,9 +223,9 @@ export default class LoggedLayout extends AbstractComponent {
   }
 
   logout () {
-    localStorage.clear()
-    sessionStorage.clear()
     void this.$router.push('/login')
+    LocalStorage.clear()
+    SessionStorage.clear()
   }
 }
 </script>
