@@ -9,34 +9,32 @@
           height="100%"
         >
           <q-carousel-slide name="login" class="col-12 row" img-src="dhc-emge.jpg">
-            <div class="col-12 row justify-center">
-              <div v-if="$q.screen.xl || $q.screen.lg || $q.screen.md || $q.screen.sm" class="absolute-top-left q-pt-md q-pl-md">
-                <q-btn to="/" icon="arrow_back" class="q-px-sm col-auto" flat no-caps text-color="primary" size="35px" dense style="height: 40px" />
-              </div>
-              <div v-else class="absolute-top-left">
-                <q-btn to="/" icon="arrow_back" class="q-px-sm col-auto" flat no-caps text-color="primary" size="25px" dense style="height: 40px" />
-              </div>
-              <div v-if="$q.screen.xl || $q.screen.lg || $q.screen.md" class="my-img">
-                <q-img
-                  @click="redirectRoute('login')"
-                  src="LogoAlertFull.png" 
-                  width="400px"
-                  height="300px"
-                  style="cursor: pointer;" 
-                />
-              </div>
-              <div v-else-if="$q.screen.sm || $q.screen.xs" class="my-img-xs">
-                <q-img
-                  @click="redirectRoute('login')"
-                  src="LogoAlertFull.png" 
-                  width="300px"
-                  height="200px"
-                  style="cursor: pointer;" 
-                />
-              </div>
+            <div v-if="$q.screen.xl || $q.screen.lg || $q.screen.md || $q.screen.sm" class="absolute-top-left q-pt-md q-pl-md">
+              <q-btn to="/" icon="arrow_back" class="q-px-sm col-auto" flat no-caps text-color="primary" size="35px" dense style="height: 40px" />
             </div>
-            <div class="col-12 row q-pt-xl justify-center">
-              <q-form class="" style="width: 400px;" @submit="login">
+            <div v-else class="absolute-top-left">
+              <q-btn to="/" icon="arrow_back" class="q-px-sm col-auto" flat no-caps text-color="primary" size="25px" dense style="height: 40px" />
+            </div>
+            <div class="col-12 row justify-center" style="display: flex; align-items: center;">
+              <q-form style="width: 400px; height: 600px;" @submit="login">
+                <div v-if="$q.screen.xl || $q.screen.lg || $q.screen.md" class="col-12 row justify-center my-img">
+                  <q-img
+                    @click="redirectRoute('login')"
+                    src="LogoAlertFull.png" 
+                    width="400px"
+                    height="300px"
+                    style="cursor: pointer; position: relative; top: -64px;"
+                  />
+                </div>
+                <div v-else-if="$q.screen.sm || $q.screen.xs" class="col-12 row justify-center my-img-xs">
+                  <q-img
+                    @click="redirectRoute('login')"
+                    src="LogoAlertFull.png" 
+                    width="300px"
+                    height="200px"
+                    style="cursor: pointer; position: relative; top: -28px;" 
+                  />
+                </div>
                 <div class="col-12 row justify-start">
                   <q-item-label class="text-h4 text-black q-pb-lg">Acesse sua conta</q-item-label>
                 </div>
@@ -197,12 +195,10 @@ export default class LoginIndex extends AbstractComponent {
 
 <style lang="scss">
   .my-img {
-    width: 400px;
-    height: 1px;
+    height: 200px;
   }
 
   .my-img-xs {
-    width: 300px;
-    height: 1px;
+    height: 150px;
   }
 </style>
