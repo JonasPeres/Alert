@@ -25,6 +25,24 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/my-data',
+    name: 'my-data',
+    meta: {
+      name: 'Meus Dados'
+    },
+    component: () => import('src/layouts/LoggedLayout.vue'),
+    children: [{ path: '', component: () => import('src/pages/my-data/Index.vue') }],
+    beforeEnter: (to, from, next) => {
+      const login = LocalStorage.getItem('login')
+      if (!login) {
+        next({ path: '/login'})
+        return
+      }
+      next()
+    }
+  },
+
+  {
     path: '/dashboard',
     name: 'dashboard',
     meta: {

@@ -2,7 +2,7 @@
   <div class="col-12 row" style="overflow: hidden; position: fixed; width: 100%; top: 0; left: 0 right: 0; bottom: 0;">
     <div class="col-6 row" style="background: url('brand-emge.png')" :style="$q.screen.sm || $q.screen.xs ? 'display: none' : 'width: 50%; height: 100%'">
     </div>
-    <q-img src="LogoAlertFull.png" class="absolute-top-left" width="180px" style="left: 2%; top: -38px; cursor: pointer; z-index: 0"></q-img>
+    <q-img src="LogoAlertFull.png" @click="$router.push('/')" class="absolute-top-left" width="180px" style="left: 2%; top: -38px; cursor: pointer; z-index: 0"></q-img>
     <div v-if="step === 0" :class="$q.screen.sm || $q.screen.xs ? 'col-12 row bg-white' : 'col-6 row bg-white'" :style="$q.screen.sm || $q.screen.xs ? '' : 'width: 50%'">
       <div class="col-12 row">
         <div class="col-12 row justify-end q-px-md">
@@ -22,16 +22,19 @@
           </q-item-label>
           <div class="col-12 row q-pt-xl" :class="$q.screen.sm || $q.screen.xs ? 'q-px-md' : 'q-pl-xl'">
             <div class="col-12 row q-gutter-md" :class="$q.screen.sm || $q.screen.xs ? '' : 'q-px-lg'">
-              <q-radio v-model="person" dense keep-color :color="person === 'A' ? 'primary' : 'grey-4'" class="text-grey-4 text-h6" val="A" label="Aluno" />
-              <q-radio v-model="person" dense keep-color :color="person === 'P' ? 'primary' : 'grey-4'" val="P" class="text-grey-4 text-h6"  label="Professor" />
+              <q-radio v-model="person" dense keep-color :color="person === 'A' ? 'primary' : 'black'" class="text-black text-h6" val="A" label="Aluno" />
+              <q-radio v-model="person" dense keep-color :color="person === 'P' ? 'primary' : 'black'" val="P" class="text-black text-h6"  label="Professor" />
             </div>
             <div v-if="person === 'A'" class="col-12 row q-pt-xl" :class="$q.screen.sm || $q.screen.xs ? '' : 'q-px-lg'">
               <q-form class="col-12 row" @submit="register()">
                 <q-input v-model="name" class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-12 row q-pr-md" label="Nome" color="primary" lazy-rules
                   :rules="[val => val && val.length > 0 || 'Esse campo não pode ficar em branco']"
                 />
-                <q-input v-model="id" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 row q-pr-md" label="Matrícula" color="primary" lazy-rules
-                  :rules="[val => val && val.length > 0 || 'Esse campo não pode ficar em branco']"
+                <q-input v-model="id" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 row q-pr-md" maxlength="6" label="Matrícula" color="primary" lazy-rules
+                  :rules="[
+                    val => val && val.length > 0 || 'Esse campo não pode ficar em branco',
+                    val => val && val.length == 6 || 'O número de matrícula deve conter 6 dígitos'
+                  ]"
                 />
                 <q-checkbox v-model="confirm" label="Gostaria de receber alertas pelo e-mail pessoa?" />
                 <q-input v-if="confirm === true" v-model="email" class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-12 row q-pr-md" label="E-mail pessoal" color="primary"

@@ -42,7 +42,7 @@
               style="overflow: hidden;"
             >
               <q-list class="bg-white" style="width: 280px;">
-                <q-item to="/meus-dados" clickable class="col-grow row text-weight-medium">
+                <q-item to="/my-data" clickable class="col-grow row text-weight-medium">
                   <q-item-section class="col-2">
                     <q-icon name="person" size="30px" color="black"></q-icon>
                   </q-item-section>
