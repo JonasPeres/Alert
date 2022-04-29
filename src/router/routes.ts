@@ -16,6 +16,15 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/register',
+    name: 'register',
+    meta: {
+      name: 'Cadastro'
+    },
+    component: () => import('src/pages/register/Index.vue'),
+  },
+
+  {
     path: '/dashboard',
     name: 'dashboard',
     meta: {

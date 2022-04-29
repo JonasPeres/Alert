@@ -2,7 +2,7 @@
   <q-layout view="hHh lpR fFf">
     <q-header class="col-12 row no-wrap justify-between items-center bg-white" :style="$q.platform.is.desktop ? 'height: 90px;' : 'height: 90px;'">
       <div :class="
-          $q.platform.is.desktop
+          $q.screen.xl || $q.screen.lg || $q.screen.md
             ? 'col-auto row items-center q-pa-md q-ml-lg'
             : 'col-auto row items-center q-pa-md'
         "
@@ -19,7 +19,7 @@
             ? '180px'
             : $q.screen.sm
             ? '160px'
-            : '90px'
+            : '120px'
           " 
           style="cursor: pointer;" 
         />
