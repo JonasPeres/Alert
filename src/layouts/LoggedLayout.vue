@@ -71,12 +71,13 @@
                 usuario === 'e01437' ? 'Jonas' :
                 usuario === 'E01437' ? 'Jonas' : 
                 usuario === 'e01384' ? 'Juliana' :
-                usuario === 'E01384' ? 'Juliana' : '' 
+                usuario === 'E01384' ? 'Juliana' : usuario
               }}
             </q-item-label>
             <q-icon name="keyboard_arrow_down"></q-icon>
             <q-avatar color="grey" text-color="grey-2" class="q-ml-md">
-              <q-icon name="person"></q-icon>
+              <img v-if="usuario === 'e01437' || usuario === 'E01437'" src="jonas.jpeg">
+              <q-icon v-else name="person"></q-icon>
             </q-avatar>
           </q-btn>
         </div>  
