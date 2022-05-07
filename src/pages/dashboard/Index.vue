@@ -1,20 +1,20 @@
 <template>
-  <div class="col-12 row q-mt-xl" :class="$q.platform.is.mobile || $q.screen.sm || $q.screen.xs ? 'q-mx-xs  ' : 'q-mx-xl'" :style="$q.screen.md || $q.screen.sm || $q.screen.xs || $q.platform.is.mobile ? 'min-height: 100vh;' : 'height: 80vh'">
-    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 row q-gutter-md" :class="$q.screen.lg || $q.screen.xl ? 'q-pr-md q-pl-xs' : 'q-pr-xs'" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'min-height: 100vh' : 'height: 100%'">
+  <div class="col-12 row q-mt-xl" :class="$q.platform.is.mobile || $q.screen.sm || $q.screen.xs ? 'q-mx-xs  ' : 'q-mx-xl'" :style="$q.screen.md || $q.screen.sm || $q.screen.xs || $q.platform.is.mobile ? 'height: 100vh;' : 'height: 80vh'">
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 row q-gutter-md" :class="$q.screen.lg || $q.screen.xl ? 'q-pr-md q-pl-xs' : 'q-pr-xs'" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'height: 100vh' : 'height: 100%'">
       <div class="col-12 row" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? '' : 'height: 50%'">
-        <q-card class="col-12 row q-mb-md card q-pl-sm bg-secondary" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'min-height: 25vh;' : 'height: 47%'">
+        <q-card class="col-12 row q-mb-md card q-pl-sm bg-secondary" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'height: 25vh;' : 'height: 47%'">
           <q-card class="col-12 row" style="border-radius: 0 6px 6px 0;">
-            <div class="col-12 row q-pa-md" style="overflow: hidden;">
+            <q-scroll-area class="q-pa-sm" style="height: 100%; width: 100%;" visible>
               <div class="col-12 row q-pa-none q-pl-sm no-wrap items-center" style="height: 10%">
                 <q-item-label :style="$q.platform.is.mobile || $q.screen.xs ? 'font-size: 28px' : 'font-size: 26px'" class="text-secondary col-grow row">Próximo alerta</q-item-label>
               </div>
-              <div class="col-12 row items-center">
+              <div class="col-12 row items-center q-pt-sm">
                 <NextAlert />
               </div>
-            </div>
+            </q-scroll-area>
           </q-card>
         </q-card>
-        <q-card class="col-12 row card q-pl-sm bg-secondary" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'min-height: 25vh;' : 'height: 48%'">
+        <q-card class="col-12 row card q-pl-sm bg-secondary" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'height: 35vh;' : 'height: 48%'">
           <q-card class="col-12 row" style="border-radius: 0 6px 6px 0;">
             <div class="col-12 row q-pa-md">
               
@@ -22,7 +22,7 @@
           </q-card>
         </q-card>
       </div>
-      <q-card class="col-12 row card q-pl-sm bg-secondary q-mt-md" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'min-height: 25vh;' : 'height: 50%'">
+      <q-card class="col-12 row card q-pl-sm bg-secondary q-mt-md" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'height: 35vh;' : 'height: 50%'">
         <q-card class="col-12 row" style="border-radius: 0 6px 6px 0;">
           <div class="col-12 row q-pa-md">
             <div class="col-12 row q-pa-none q-pl-md no-wrap items-center" style="height: 10%">
@@ -36,16 +36,16 @@
       </q-card>
     </div>
     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 row q-pr-xs" :class="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'q-pb-lg q-pt-md' : 'q-pl-md'">
-      <q-card class="col-12 row q-pl-sm card bg-secondary" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'min-height: 40vh' : 'height: 50%'">
+      <q-card class="col-12 row q-pl-sm card bg-secondary" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'height: 40vh' : 'height: 50%'">
         <q-card class="col-12 row" style="border-radius: 0 6px 6px 0;">
           <div class="col-12 row">
-            <div class="col-12 row justify-center">
-              <Calendar />
-            </div>
+            <q-scroll-area class="q-pa-sm" style="height: 100%; width: 100%;" visible>
+              <Calendar />    
+            </q-scroll-area>
           </div>
         </q-card>
       </q-card>
-      <q-card class="col-12 row card q-pl-sm q-mt-md bg-secondary" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'min-height: 30vh' : 'height: 50%'">
+      <q-card class="col-12 row card q-pl-sm q-mt-md bg-secondary" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'height: 40vh' : 'height: 50%'">
         <q-card class="col-12" style="border-radius: 0 6px 6px 0;">
           <div class="col-12 row" style="height: 100%">
             <Carousel />
