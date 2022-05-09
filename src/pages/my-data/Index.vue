@@ -50,7 +50,7 @@
               </q-tooltip>
             </q-btn>
           </q-card-section>
-          <q-form class="col-12 row q-pa-lg">
+          <q-form class="col-12 row q-pa-lg" @submit="forgotPass()">
             <q-input 
               v-model="oldPass" 
               color="secondary"
@@ -61,13 +61,13 @@
               :rules="[
                 val => val && val.length > 0 || 'Esse campo não pode ficar em branco']"
             >
-                <template v-slot:append>
-                  <q-icon
-                    :name="isPwd ? 'visibility' : 'visibility_off'"
-                    class="cursor-pointer"
-                    @click="isPwd = !isPwd"
-                  />
-                </template>
+              <template v-slot:append>
+                <q-icon
+                  :name="isPwd ? 'visibility' : 'visibility_off'"
+                  class="cursor-pointer"
+                  @click="isPwd = !isPwd"
+                />
+              </template>
             </q-input>
             <q-input 
               v-model="newPass" 
@@ -79,13 +79,13 @@
               :rules="[
                 val => val && val.length > 0 || 'Esse campo não pode ficar em branco']"
             >
-                <template v-slot:append>
-                  <q-icon
-                    :name="isPwdNew ? 'visibility' : 'visibility_off'"
-                    class="cursor-pointer"
-                    @click="isPwdNew = !isPwdNew"
-                  />
-                </template>
+              <template v-slot:append>
+                <q-icon
+                  :name="isPwdNew ? 'visibility' : 'visibility_off'"
+                  class="cursor-pointer"
+                  @click="isPwdNew = !isPwdNew"
+                />
+              </template>
             </q-input>
             <q-input 
               v-model="confirmPass"
@@ -97,25 +97,25 @@
               :rules="[
                 val => val && val.length > 0 && val === newPass || 'As senhas devem ser iguais']"
             >
-                <template v-slot:append>
-                  <q-icon
-                    :name="isPwdConfirm ? 'visibility' : 'visibility_off'"
-                    class="cursor-pointer"
-                    @click="isPwdConfirm = !isPwdConfirm"
-                  />
-                </template>
+              <template v-slot:append>
+                <q-icon
+                  :name="isPwdConfirm ? 'visibility' : 'visibility_off'"
+                  class="cursor-pointer"
+                  @click="isPwdConfirm = !isPwdConfirm"
+                />
+              </template>
             </q-input>
             <div class="col-12 row q-pt-xl justify-end q-px-lg">
-                <q-btn flat color="secondary" label="Cancelar" size="20px"  v-close-popup>
+              <q-btn flat color="secondary" label="Cancelar" size="20px"  v-close-popup>
                 <q-tooltip>
-                    Fechar
+                  Fechar
                 </q-tooltip>
-                </q-btn>
-                <q-btn color="primary" type="submit" text-color="white" label="Alterar" size="20px">
+              </q-btn>
+              <q-btn color="primary" type="submit" text-color="white" label="Alterar" size="20px">
                 <q-tooltip>
-                    Enviar e-mail
+                  Enviar e-mail
                 </q-tooltip>
-                </q-btn>
+              </q-btn>
             </div>
           </q-form>
         </div>
@@ -136,11 +136,24 @@ export default class MyDataIndex extends AbstractComponent {
   isPwdNew = true
   oldPass = ''
   newPass = ''
+  confirmPass = ''
 
   created () {
     const usuario = localStorage.getItem('usuario')
     if (usuario)
     this.usuario = usuario
+  }
+
+  forgotPass () {
+    super.showLoading()
+    try {
+      this.popupChangePass = false
+      super.showNotifySuccess('Senha alterada com sucesso')
+    } catch (error) {
+      super.showNotifyErrorCustom(error as string)
+    } finally {
+      super.hideLoading()
+    }
   }
 }
 </script>
