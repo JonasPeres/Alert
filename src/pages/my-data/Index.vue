@@ -14,8 +14,8 @@
           {{
             usuario === 'e01437' ? 'Jonas Rodrigues Carvalho Peres' :
             usuario === 'E01437' ? 'Jonas Rodrigues Carvalho Peres' : 
-            usuario === 'e01384' ? 'Juliana' :
-            usuario === 'E01384' ? 'Juliana' : usuario
+            usuario === 'e01384' ? 'Juliana Parreira Amarante de Mendonça Kill' :
+            usuario === 'E01384' ? 'Juliana Parreira Amarante de Mendonça Kill' : usuario
           }}
         </q-item-label>
       </div>
@@ -29,8 +29,8 @@
           {{
             usuario === 'e01437' ? 'jonasperes10@hotmail.com' :
             usuario === 'E01437' ? 'jonasperes10@hotmail.com' : 
-            usuario === 'e01384' ? 'Juliana' :
-            usuario === 'E01384' ? 'Juliana' : usuario
+            usuario === 'e01384' ? 'amarante.kill@gmail.com' :
+            usuario === 'E01384' ? 'amarante.kill@gmail.com' : usuario
           }}
         </q-item-label>
       </div>

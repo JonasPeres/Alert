@@ -82,7 +82,7 @@
       <q-toolbar class="col-12 row q-px-lg q-pb-sm" style="width: 100%">
         <div class="col-12 row justify-center">
           <q-item-label class="text-white">
-            Desenvolvido por JonasPeres
+            Desenvolvido por Jonas Peres
           </q-item-label>
         </div>
       </q-toolbar>

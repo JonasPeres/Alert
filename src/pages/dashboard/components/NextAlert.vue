@@ -1,6 +1,6 @@
 <template>
-  <div class="col-12 row justify-center q-pa-sm" style="height: 100%">
-    <q-card class="my-card" style="width: 100%;">
+  <div class="col-12 row justify-center items-center q-pa-sm" :style="$q.screen.xl || $q.screen.lg ? 'min-height: 120px' : 'min-height: 180px'">
+    <q-card class="my-card" style="width: 100%;" :style="$q.screen.xl || $q.screen.lg || $q.screen.md ? 'height: 86px' : 'height: 140px'">
       <q-card-section class="col-12 row text-black" :class="$q.screen.xs ? 'justify-center' : 'justify-between'">
         <div :class="$q.screen.xs ? 'col-12 justify-center' : 'col-auto'">
           <div class="text-h6">Prova Parcial 2 - AOCIII</div>

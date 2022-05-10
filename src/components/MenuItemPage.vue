@@ -23,6 +23,11 @@
       </q-item-section>
     </q-item>
   </div>
+  <div class="col-12 row justify-center absolute-bottom q-pb-md">
+    <q-item-label class="text-bold" style="font-size: 10px">
+      Desenvolvido por Jonas Peres
+    </q-item-label>
+  </div>
 </template>
 
 <style>

@@ -77,6 +77,7 @@
             <q-icon name="keyboard_arrow_down"></q-icon>
             <q-avatar color="grey" text-color="grey-2" class="q-ml-md">
               <img v-if="usuario === 'e01437' || usuario === 'E01437'" src="jonas.jpeg">
+              <img v-else-if="usuario === 'e01384' || usuario === 'E01384'" src="juliana.jpeg">
               <q-icon v-else name="person"></q-icon>
             </q-avatar>
           </q-btn>
