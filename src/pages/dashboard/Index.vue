@@ -27,14 +27,14 @@
           </q-card>
         </q-card>
       </div>
-      <q-card class="col-12 row card q-pl-sm bg-secondary q-mt-md" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'height: 35vh;' : 'height: 50%'">
-        <q-card class="col-12 row" style="border-radius: 0 6px 6px 0;">
-          <div class="col-12 row q-pa-md">
+      <q-card class="col-12 row card q-pl-sm q-mt-md bg-secondary" :style="$q.screen.md || $q.screen.sm || $q.screen.xs ? 'height: 35vh' : 'height: 50%'">
+        <q-card class="col-12" style="border-radius: 0 6px 6px 0;">
+          <div class="col-12 row q-pa-md" style="height: 100%;">
             <div class="col-12 row q-pa-none q-pl-sm no-wrap" style="height: 10%">
-              <q-item-label :style="$q.platform.is.mobile || $q.screen.xs ? 'font-size: 28px' : 'font-size: 30px'" class="text-secondary col-grow row"></q-item-label>
+              <q-item-label :style="$q.platform.is.mobile || $q.screen.xs ? 'font-size: 28px' : 'font-size: 30px'" class="text-secondary col-grow row">Bloco de Notas</q-item-label>
             </div>
-            <div class="col-12 row items-center">
-              
+            <div class="col-12 row" style="height: 90%">
+              <Chat />
             </div>
           </div>
         </q-card>
@@ -63,6 +63,7 @@
 import AbstractComponent from 'src/components/abstract-component'
 import { Options } from 'vue-class-component'
 import Carousel from 'src/pages/dashboard/components/Carousel.vue'
+import Chat from 'src/pages/dashboard/components/Chat.vue'
 import NextAlert from 'src/pages/dashboard/components/NextAlert.vue'
 import Calendar from 'src/pages/dashboard/components/Calendar.vue'
 import Platforms from 'src/pages/dashboard/components/Platforms.vue'
@@ -72,7 +73,8 @@ import Platforms from 'src/pages/dashboard/components/Platforms.vue'
     Carousel,
     NextAlert,
     Calendar,
-    Platforms
+    Platforms,
+    Chat
   }
 })
 

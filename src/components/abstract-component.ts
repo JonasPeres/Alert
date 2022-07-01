@@ -1,4 +1,5 @@
 import { Vue } from 'vue-class-component';
+import patternText from 'src/helpers/patternText';
 
 export default class AbstractComponent extends Vue {
   showNotifyError (msg: string) :void {
@@ -41,5 +42,9 @@ export default class AbstractComponent extends Vue {
 
   hideLoading () {
     this.$q.loading.hide()
+  }
+
+  pattern(value: KeyboardEvent, type: string) {
+    return patternText(value, type)
   }
 }

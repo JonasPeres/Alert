@@ -4,8 +4,8 @@ import { LocalStorage } from 'quasar';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('src/layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('src/pages/home/Index.vue') }],
+    component: () => import('src/layouts/NotLoggedLayout.vue'),
+    children: [{ path: '', component: () => import('src/pages/login/Index.vue') }],
   },
 
   {

@@ -9,12 +9,6 @@
           height="100%"
         >
           <q-carousel-slide name="login" class="col-12 row" img-src="dhc-emge.jpg">
-            <div v-if="$q.screen.xl || $q.screen.lg || $q.screen.md || $q.screen.sm" class="absolute-top-left q-pt-md q-pl-md">
-              <q-btn to="/" icon="arrow_back" class="q-px-sm col-auto" flat no-caps text-color="primary" size="35px" dense style="height: 40px" />
-            </div>
-            <div v-else class="absolute-top-left">
-              <q-btn to="/" icon="arrow_back" class="q-px-sm col-auto" flat no-caps text-color="primary" size="25px" dense style="height: 40px" />
-            </div>
             <div class="col-12 row justify-center" style="display: flex; align-items: center;">
               <q-form style="width: 400px; height: 600px;" @submit="login">
                 <div v-if="$q.screen.xl || $q.screen.lg || $q.screen.md" class="col-12 row justify-center my-img">
@@ -93,6 +87,10 @@
                 </q-input>
                 <q-btn flat dense no-caps class="text-grey-4 q-mt-md" @click="popupForgotPass = true">Esqueci minha senha</q-btn>
                 <q-btn label="Entrar" color="black" type="submit" class="full-width q-my-md" text-color="primary" size="17px"  />
+                <p class="col-12 row items-center text-grey-4">
+                  Se ainda não tem cadastro, 
+                  <q-btn flat dense no-caps class="text-grey-4" @click="toRegister()">Clique aqui</q-btn>
+                </p>
               </q-form>
             </div>
           </q-carousel-slide>
@@ -188,6 +186,10 @@ export default class LoginIndex extends AbstractComponent {
     } finally {
       super.hideLoading()
     }
+  }
+
+  toRegister() {
+    void this.$router.push('/register')
   }
 
 }
